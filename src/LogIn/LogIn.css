@@ -1,0 +1,15 @@
+.account {
+    display: flex;
+    width: 25vw;
+}
+.account button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.log-in {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}

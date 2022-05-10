@@ -1,4 +1,41 @@
+.sign-in h3,
+.sign-in div,
+.sign-in input,
+.sign-in label {
+    width: 25vw;
+    border-radius: 0.25rem;
+}
+.sign-in h3 {
+    margin-bottom: 1rem;
+}
 .sign-body {
    display: flex;
    flex-direction: column;
+   row-gap: 1rem;
+}
+.password-container {
+    background-color: var(--text-white);
+    color: var(--text-black);
+    display: flex;
+    border-radius: 0.25rem;
+    height: 2rem;
+}
+.password-container svg {
+    width: fit-content;
+}
+input[type="password"] {
+    border: none;
+} 
+.fa-eye {
+    cursor: pointer;
+    width: 2rem;
+}
+#submit, #email, #password {
+    height: 2rem;
+    border: none;
+    padding: 0.25rem;
+    font-size: 1rem;
+}
+#submit {
+    cursor: pointer;
 }

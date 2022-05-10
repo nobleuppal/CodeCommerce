@@ -1,21 +1,47 @@
 import React from "react";
+import './SignIn.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+
 
 class SignIn extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            inputType: "password",
+        }
+    }
+
+    toggleVis = () => {
+        const pass = document.getElementById('password');
+        if ( pass.type === 'password') {
+            this.setState({inputType: 'text'});
+        }
+        else {
+            this.setState({inputType: 'password'});
+        }
+    }
+
     render() {
+
+        const eye = <FontAwesomeIcon icon={faEye}/>
+        
         return(
-            <div className="sign-in">
-                <h3>Sign In</h3>
+            <form className="sign-in">
+                <h3>Welcome to Code Commerce!</h3>
 
                 <div className="sign-body">
-                    <label for="email">Your Email Address *</label>
+                    <label htmlFor="email">Email Address</label>
                     <input id="email" name="email" type="email"/>
 
-                    <label for="password">Your Password *</label>
-                    <input id="password" name="password" type="password"/>
+                    <label htmlFor="password">Password</label>
+                    <div className="password-container">
+                        <input id="password" name="password" type={this.state.inputType}/><span onClick={() => this.toggleVis()} className="fa-eye">{eye}</span>
+                    </div>
 
-                    <input id="submit" type="button" name="submit" value="Continue"></input>
+                    <input id="submit" type="button" name="submit" value="Sign In"></input>
                 </div>
-            </div>
+            </form>
         );
     }
 }

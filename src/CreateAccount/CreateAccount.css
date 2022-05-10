@@ -1,0 +1,58 @@
+.create-account label, .create-account input, .create-account button {
+    width: 25vw;
+    height: 2rem;
+    border-radius: 0.25rem;
+    border: none;
+}
+.create-account label {
+    text-align: left;
+}
+.create-account {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+.enter-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+}
+.pass-container {
+    background-color: var(--text-white);
+    color: var(--text-black);
+    display: flex;
+    width: 25vw;
+    border-radius: 0.25rem;
+}
+.pass-container svg {
+    width: fit-content;
+}
+input[type="password"] {
+    border: none;
+} 
+.fa-eye {
+    cursor: pointer;
+    width: 2rem;
+}
+.create-account input {
+    padding: 0.25rem;
+    font-size: 1rem;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+button {
+    cursor: pointer;
+}
+p.e-error-invisible, p.p-error-invisible, p.f-error-invisible, p.l-error-invisible, p.z-error-invisible {
+    visibility: hidden;
+    font-size: 0rem;
+}
+p.e-error-visible, p.p-error-visible, p.f-error-visible, p.l-error-visible, p.z-error-visible {
+    visibility: visible;
+    color: var(--error-red);
+    text-align: left;
+    width: 25vw;
+}

@@ -1,0 +1,11 @@
+* {
+    width: 1440px;
+    padding: 0rem;
+    margin: auto;
+    box-sizing: border-box;
+}
+:root {
+    --text-white: white;
+    --text-black: black;
+    --error-red: red;
+}
