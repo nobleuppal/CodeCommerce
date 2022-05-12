@@ -5,20 +5,32 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 
 class SignIn extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             inputType: "password",
         }
+        this.arrayProfiles = this.props.profileArray;
     }
 
     toggleVis = () => {
         const pass = document.getElementById('password');
-        if ( pass.type === 'password') {
+        if (pass.type === 'password') {
             this.setState({inputType: 'text'});
         }
         else {
             this.setState({inputType: 'password'});
+        }
+    }
+
+    isValidAccount = () => {
+        const emailElm = document.getElementById('email');
+        const passElm = document.getElementById('password');
+
+        for (const elm of this.arrayProfiles) {
+            if ( emailElm.value === elm.email && passElm.value === elm.password ) {
+                this.props.toCart();
+            }
         }
     }
 
@@ -39,7 +51,7 @@ class SignIn extends React.Component {
                         <input id="password" name="password" type={this.state.inputType}/><span onClick={() => this.toggleVis()} className="fa-eye">{eye}</span>
                     </div>
 
-                    <input id="submit" type="button" name="submit" value="Sign In"></input>
+                    <input onClick={ () => this.isValidAccount()} id="submit" type="button" name="submit" value="Sign In"></input>
                 </div>
             </form>
         );

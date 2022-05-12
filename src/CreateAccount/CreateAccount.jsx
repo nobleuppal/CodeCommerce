@@ -4,8 +4,8 @@ import React from "react";
 import './CreateAccount.css';
 
 class CreateAccount extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             inputType: "password",
             emailVis: 'e-error-invisible',
@@ -13,7 +13,8 @@ class CreateAccount extends React.Component {
             firstVis: 'f-error-invisible',
             lastVis: 'l-error-invisible',
             zipVis: 'z-error-invisible',
-        }
+        }  
+       
     }
 
     toggleVis = () => {
@@ -29,16 +30,30 @@ class CreateAccount extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
+        const regExVis = /\b(\w*invisible\w*)\b/;
+        const {emailVis, passVis, firstVis, lastVis, zipVis} = this.state;
+        
         this.validateEmail();
         this.validatePass();
         this.validateNames();
         this.validateZip();
+
+        if(regExVis.test(emailVis) && regExVis.test(passVis) && regExVis.test(firstVis) && regExVis.test(lastVis) && regExVis.test(zipVis)) {
+            const newEmailValue = document.getElementById('new-email').value;
+            const newPassValue = document.getElementById('new-pass').value;
+            const firstNameValue = document.getElementById('first').value;
+            const lastNameValue = document.getElementById('last').value;
+            const zipCodeValue = document.getElementById('zip').value;
+
+            this.props.allProfiles(newEmailValue, newPassValue, zipCodeValue, firstNameValue, lastNameValue);
+            this.props.toSignIn();
+        }
     }
 
     validateEmail = () => {
         const regExEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         const newEmail = document.getElementById('new-email');
+
        
         if (!regExEmail.test(newEmail.value)) {
             this.setState({emailVis: 'e-error-visible'});
@@ -84,8 +99,9 @@ class CreateAccount extends React.Component {
 
     validateZip = () => {
         const zipCode = document.getElementById('zip');
+        const zipLength = 5;
 
-        if (zipCode.value.length === 5) {
+        if (zipCode.value.length === zipLength) {
             this.setState({zipVis: 'z-error-invisible'});
         }
         else {
