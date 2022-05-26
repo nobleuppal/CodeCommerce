@@ -8,7 +8,7 @@ class LogIn extends React.Component {
     constructor() {
         super();
         this.state = {
-            accountStatus: <SignIn/>,
+            accountStatus: <SignIn profileArray={this.profiles} toCart={this.toCartPage} toCreate={this.toCreatePage}/>,
             index: 0,
         }
         this.profiles = [];
@@ -19,7 +19,7 @@ class LogIn extends React.Component {
     }
 
     toSignInPage = () => {
-        this.setState({ accountStatus: <SignIn profileArray={this.profiles} toCart={this.toCartPage}/>});
+        this.setState({ accountStatus: <SignIn profileArray={this.profiles} toCart={this.toCartPage} toCreate={this.toCreatePage}/>});
     }
 
     toCartPage = () => {
@@ -49,10 +49,6 @@ class LogIn extends React.Component {
 
         return(
             <div className="log-in">
-                <div className="account">
-                    <button onClick={ () => this.toSignInPage() }>Sign In</button>
-                    <button onClick={ () => this.toCreatePage() }>Create Account</button>
-                </div>
                 {accountStatus}
             </div>
         );

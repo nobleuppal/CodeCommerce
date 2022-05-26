@@ -34,6 +34,7 @@ class SignIn extends React.Component {
         }
     }
 
+
     render() {
 
         const eye = <FontAwesomeIcon icon={faEye}/>
@@ -41,6 +42,11 @@ class SignIn extends React.Component {
         return(
             <form className="sign-in">
                 <h3>Welcome to Code Commerce!</h3>
+
+                <div className="account">
+                    <button onClick={ () => this.props.toSignIn()}>Sign In</button>
+                    <button onClick={ () => this.props.toCreate() }>Create Account</button>
+                </div>
 
                 <div className="sign-body">
                     <label htmlFor="email">Email Address</label>

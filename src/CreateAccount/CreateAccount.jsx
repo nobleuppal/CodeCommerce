@@ -116,6 +116,12 @@ class CreateAccount extends React.Component {
 
         return (
             <form className="create-account">
+
+                <div className="account">
+                    <button onClick={ () => this.props.toSignIn() }>Sign In</button>
+                    <button onClick={ () => this.props.toCreate() }>Create Account</button>
+                </div>
+
                 <div className="enter-info">
                     <p className={emailVis}>hmmm... looks like the email is invalid</p>
                     <label htmlFor="new-email">Your E-Mail Address *</label>
@@ -156,7 +162,7 @@ class CreateAccount extends React.Component {
                 </div>
 
                 <div className="submit-account">
-                    <button onClick={ (e) => this.handleSubmit(e)}>LOG IN</button>
+                    <button onClick={ (e) => this.handleSubmit(e)}>Sign Up</button>
                     <p>or</p>
                     <button>SIGN UP WITH FACEBOOK</button>
                 </div>

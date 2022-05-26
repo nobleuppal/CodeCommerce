@@ -1,0 +1,23 @@
+.cart-item {
+    display: flex;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1rem;
+    width: 50vw;
+}
+.cart-item img {
+    width: 12rem;
+    height: 9rem;
+}
+.cart-item select {
+    width: 3vw;
+}
+.product {
+    display: flex;
+    justify-items: flex-start;
+    width: 25vw;
+}
+.x-mark {
+    cursor: pointer;
+    margin-left: 0rem;
+}
