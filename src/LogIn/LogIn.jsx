@@ -3,6 +3,8 @@ import CreateAccount from "../CreateAccount/CreateAccount";
 import CustomerCart from "../Customer Cart/CustomerCart";
 import SignIn from "../SignIn/SignIn";
 import './LogIn.css';
+import ShippingInfo from "../ShippingInfo/ShippingInfo";
+
 
 class LogIn extends React.Component {
     constructor() {
@@ -23,7 +25,12 @@ class LogIn extends React.Component {
     }
 
     toCartPage = () => {
-        this.setState({ accountStatus: <CustomerCart/>});
+        this.setState({ accountStatus: <CustomerCart toShipping={this.toShipping}/>});
+    }
+
+    toShipping = (e) => {
+        e.preventDefault();
+        this.setState({ accountStatus: <ShippingInfo/>});
     }
 
     addProfile = (email, password, zip, first, last) => {

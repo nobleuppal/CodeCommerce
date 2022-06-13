@@ -98,8 +98,10 @@ class CreateAccount extends React.Component {
     }
 
     validateZip = () => {
+        console.log('yes');
         const zipCode = document.getElementById('zip');
         const zipLength = 5;
+        console.log(zipCode.value.length);
 
         if (zipCode.value.length === zipLength) {
             this.setState({zipVis: 'z-error-invisible'});
@@ -115,7 +117,7 @@ class CreateAccount extends React.Component {
         const {emailVis, passVis, firstVis, lastVis, zipVis} = this.state;
 
         return (
-            <form className="create-account">
+            <form onSubmit={(e) => this.handleSubmit(e)} className="create-account">
 
                 <div className="account">
                     <button onClick={ () => this.props.toSignIn() }>Sign In</button>
@@ -162,7 +164,7 @@ class CreateAccount extends React.Component {
                 </div>
 
                 <div className="submit-account">
-                    <button onClick={ (e) => this.handleSubmit(e)}>Sign Up</button>
+                    <button type="submit">Sign Up</button>
                     <p>or</p>
                     <button>SIGN UP WITH FACEBOOK</button>
                 </div>

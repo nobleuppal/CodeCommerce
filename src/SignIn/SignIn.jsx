@@ -45,7 +45,7 @@ class SignIn extends React.Component {
 
                 <div className="account">
                     <button onClick={ () => this.props.toSignIn()}>Sign In</button>
-                    <button onClick={ () => this.props.toCreate() }>Create Account</button>
+                    <button onClick={ () => this.props.toCreate()}>Create Account</button>
                 </div>
 
                 <div className="sign-body">
@@ -57,7 +57,7 @@ class SignIn extends React.Component {
                         <input id="password" name="password" type={this.state.inputType}/><span onClick={() => this.toggleVis()} className="fa-eye">{eye}</span>
                     </div>
 
-                    <input onClick={ () => this.isValidAccount()} id="submit" type="button" name="submit" value="Sign In"></input>
+                    <input onClick={ () => this.isValidAccount()} id="submit" type="submit" name="submit" value="Sign In"></input>
                 </div>
             </form>
         );

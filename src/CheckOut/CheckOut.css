@@ -1,0 +1,6 @@
+.check-out h3, .check-out label {
+    width: 50vw;
+}
+.check-out button, .check-out input {
+    width: 10vw;
+}
