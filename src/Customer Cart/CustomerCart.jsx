@@ -4,6 +4,9 @@ import ItemContainer from "../ItemContainer/ItemContainer";
 import secretCode from '../assets/rare_code.jpeg';
 import rareCode from '../assets/secret_code.jpeg';
 import CheckOut from "../CheckOut/CheckOut";
+import ShippingInfo from "../ShippingInfo/ShippingInfo";
+import Payment from "../Payment/Payment";
+
 
 class CustomerCart extends React.Component {
    constructor() {
@@ -14,19 +17,45 @@ class CustomerCart extends React.Component {
        ]
        this.state = {
             checkoutTotal: 0,
+            checkoutPage: <ItemContainer handleClick={this.handleClick} checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>, 
+            prevPage: null,  
+            shippingCost: 0, 
        }
    }
 
    getCartTotal = (cartTotal) => {
-        this.setState({checkoutTotal: cartTotal});
+        this.setState({ checkoutTotal: cartTotal});
    }
+
+   handleClick = (e) => {
+        e.preventDefault();
+        if (this.state.prevPage === null) {
+            this.setState({ checkoutPage: <ShippingInfo handleClickCart={this.handleClick} setShipping={this.setShippingInfoValid} getActive={this.getActive}/>, prevPage: <ItemContainer checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>});
+        }
+        else if (this.state.checkoutPage.type.name === "ShippingInfo") {
+            this.setState({ checkoutPage: <Payment/>, prevPage: <ShippingInfo getActive={this.getActive}/>});
+        }
+    }
+
+    getActive = (active, option) => {
+        if (option === 0 && active === true) {
+            this.setState({shippingCost: 0});
+        }
+        else if (option === 1 && active === true) {
+            this.setState({shippingCost: 5});
+        } 
+    }
+    
+    setShippingInfoValid = () => {
+        this.setState({shippingInfoValid: true});
+    }
 
     render() {
         return(
-            <form className="customer-cart">
-                <ItemContainer checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>
-                <CheckOut toShipping={this.props.toShipping} checkoutPrice={this.state.checkoutTotal}/>
-            </form>
+            <div className="customer-cart">
+                <div>{this.state.checkoutPage}</div>
+                <CheckOut shippingCost={this.state.shippingCost} handleClick={this.handleClick} checkoutPrice={this.state.checkoutTotal}/>
+            </div>
         );
     }
 }

@@ -25,13 +25,10 @@ class LogIn extends React.Component {
     }
 
     toCartPage = () => {
-        this.setState({ accountStatus: <CustomerCart toShipping={this.toShipping}/>});
+        this.setState({ accountStatus: <CustomerCart/>});
     }
 
-    toShipping = (e) => {
-        e.preventDefault();
-        this.setState({ accountStatus: <ShippingInfo/>});
-    }
+ 
 
     addProfile = (email, password, zip, first, last) => {
         

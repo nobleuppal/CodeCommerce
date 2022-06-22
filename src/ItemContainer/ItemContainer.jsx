@@ -57,8 +57,9 @@ class ItemContainer extends React.Component {
                     <div>Quantity</div>
                     <div>Total Price</div>
                 </div>
-               {this.state.itemOne}
-               {this.state.itemTwo}    
+               <div>{this.state.itemOne}</div>
+               <div>{this.state.itemTwo}</div>    
+               <button onClick={(e) => this.props.handleClick(e)} type="button">Checkout</button>
             </div>
         );
     }

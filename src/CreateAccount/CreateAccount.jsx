@@ -98,10 +98,8 @@ class CreateAccount extends React.Component {
     }
 
     validateZip = () => {
-        console.log('yes');
         const zipCode = document.getElementById('zip');
         const zipLength = 5;
-        console.log(zipCode.value.length);
 
         if (zipCode.value.length === zipLength) {
             this.setState({zipVis: 'z-error-invisible'});

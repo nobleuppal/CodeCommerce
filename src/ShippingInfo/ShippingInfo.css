@@ -1,0 +1,15 @@
+.shipping-info input, .shipping-info select{
+    width: 25vw;
+}
+.shipping-info {
+    display: flex;
+    flex-direction: column;
+}
+.ship-method input {
+    width: fit-content;
+    margin-right: 0.25rem;
+}
+.shipping-error {
+    color: var(--error-red);
+    font-size: var(--error-size);
+}
