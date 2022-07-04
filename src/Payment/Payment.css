@@ -1,0 +1,14 @@
+.payment-info input {
+    width: 25vw;
+}
+.payment-info select {
+    width: 5vw;
+    cursor: pointer;
+}
+.cvv-container input {
+    width: 5vw;
+}
+.payment-info p {
+    font-size: var(--error-size);
+    color: var(--error-red);
+}

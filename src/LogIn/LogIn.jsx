@@ -3,7 +3,6 @@ import CreateAccount from "../CreateAccount/CreateAccount";
 import CustomerCart from "../Customer Cart/CustomerCart";
 import SignIn from "../SignIn/SignIn";
 import './LogIn.css';
-import ShippingInfo from "../ShippingInfo/ShippingInfo";
 
 
 class LogIn extends React.Component {
@@ -27,6 +26,8 @@ class LogIn extends React.Component {
     toCartPage = () => {
         this.setState({ accountStatus: <CustomerCart/>});
     }
+
+ 
 
  
 

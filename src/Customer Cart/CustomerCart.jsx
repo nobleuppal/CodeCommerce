@@ -6,6 +6,7 @@ import rareCode from '../assets/secret_code.jpeg';
 import CheckOut from "../CheckOut/CheckOut";
 import ShippingInfo from "../ShippingInfo/ShippingInfo";
 import Payment from "../Payment/Payment";
+import Confirmation from "../Confirmation/Confirmation";
 
 
 class CustomerCart extends React.Component {
@@ -21,6 +22,7 @@ class CustomerCart extends React.Component {
             prevPage: null,  
             shippingCost: 0, 
        }
+       this.lastDigits = 0;   
    }
 
    getCartTotal = (cartTotal) => {
@@ -33,8 +35,15 @@ class CustomerCart extends React.Component {
             this.setState({ checkoutPage: <ShippingInfo handleClickCart={this.handleClick} setShipping={this.setShippingInfoValid} getActive={this.getActive}/>, prevPage: <ItemContainer checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>});
         }
         else if (this.state.checkoutPage.type.name === "ShippingInfo") {
-            this.setState({ checkoutPage: <Payment/>, prevPage: <ShippingInfo getActive={this.getActive}/>});
+            this.setState({ checkoutPage: <Payment getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>, prevPage: <ShippingInfo getActive={this.getActive}/>});
         }
+        else if (this.state.checkoutPage.type.name === "Payment") {
+            this.setState({ checkoutPage: <Confirmation lastDigits={this.lastDigits}/>, prevPage: <Payment getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>});
+        }
+    }
+
+    getLastFour = (digits) => {
+        this.lastDigits = digits;
     }
 
     getActive = (active, option) => {
