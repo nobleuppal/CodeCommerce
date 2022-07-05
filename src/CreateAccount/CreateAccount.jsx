@@ -32,11 +32,6 @@ class CreateAccount extends React.Component {
         e.preventDefault();
         const regExVis = /\b(\w*invisible\w*)\b/;
         const {emailVis, passVis, firstVis, lastVis, zipVis} = this.state;
-        
-        this.validateEmail();
-        this.validatePass();
-        this.validateNames();
-        this.validateZip();
 
         if(regExVis.test(emailVis) && regExVis.test(passVis) && regExVis.test(firstVis) && regExVis.test(lastVis) && regExVis.test(zipVis)) {
             const newEmailValue = document.getElementById('new-email').value;
@@ -50,12 +45,10 @@ class CreateAccount extends React.Component {
         }
     }
 
-    validateEmail = () => {
+    validateEmail = (e) => {
         const regExEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-        const newEmail = document.getElementById('new-email');
-
        
-        if (!regExEmail.test(newEmail.value)) {
+        if (!regExEmail.test(e.target.value)) {
             this.setState({emailVis: 'e-error-visible'});
         }
         else {
@@ -97,11 +90,10 @@ class CreateAccount extends React.Component {
 
     }
 
-    validateZip = () => {
-        const zipCode = document.getElementById('zip');
+    validateZip = (e) => {
         const zipLength = 5;
 
-        if (zipCode.value.length === zipLength) {
+        if (e.target.value.length === zipLength) {
             this.setState({zipVis: 'z-error-invisible'});
         }
         else {
@@ -125,7 +117,7 @@ class CreateAccount extends React.Component {
                 <div className="enter-info">
                     <p className={emailVis}>hmmm... looks like the email is invalid</p>
                     <label htmlFor="new-email">Your E-Mail Address *</label>
-                    <input id="new-email" name="new-email" type="email" required/>
+                    <input onChange={e => this.validateEmail(e)} id="new-email" name="new-email" type="email" required/>
                 </div>
 
                 <div className="enter-info">
@@ -146,19 +138,19 @@ class CreateAccount extends React.Component {
                 <div className="enter-info">
                     <p className={firstVis}>sorry, invalid name</p>
                     <label htmlFor="first">First Name *</label>
-                    <input id="first" name="first" type="text" required/>
+                    <input onChange={() => this.validateNames()} id="first" name="first" type="text" required/>
                 </div>
 
                 <div className="enter-info">
                     <p className={lastVis}>sorry, invalid name</p>
                     <label htmlFor="last">Surname *</label>
-                    <input id="last" name="last" type="text" required/>
+                    <input onChange={() => this.validateNames()} id="last" name="last" type="text" required/>
                 </div>
 
                 <div className="enter-info">
                     <p className={zipVis}>sorry, invalid zip code</p>
                     <label htmlFor="zip">Zip Code *</label>
-                    <input id="zip" name="zip" type="number" required/>
+                    <input onChange={e => this.validateZip(e)} id="zip" name="zip" type="number" required/>
                 </div>
 
                 <div className="submit-account">

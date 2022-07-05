@@ -74,6 +74,8 @@ class ShippingInfo extends React.Component {
             this.props.handleClickCart(e);
         }
     }
+
+    
         
     render() {
         return(
@@ -444,6 +446,7 @@ class ShippingInfo extends React.Component {
                 </div>
 
                 <div>
+                    <button onClick={() => this.props.toPrev()} type="button">Back</button>
                     <button onClick={(e) => this.handleClick(e)} type="button">Checkout</button>
                 </div>
             </form>

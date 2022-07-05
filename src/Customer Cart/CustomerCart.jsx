@@ -31,14 +31,25 @@ class CustomerCart extends React.Component {
 
    handleClick = (e) => {
         e.preventDefault();
-        if (this.state.prevPage === null) {
-            this.setState({ checkoutPage: <ShippingInfo handleClickCart={this.handleClick} setShipping={this.setShippingInfoValid} getActive={this.getActive}/>, prevPage: <ItemContainer checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>});
+        if (this.state.checkoutPage.type.name === "ItemContainer") {
+            this.setState({ checkoutPage: <ShippingInfo toPrev={this.goToPrev} handleClickCart={this.handleClick} setShipping={this.setShippingInfoValid} getActive={this.getActive}/>, prevPage: <ItemContainer handleClick={this.handleClick} checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>});
         }
         else if (this.state.checkoutPage.type.name === "ShippingInfo") {
-            this.setState({ checkoutPage: <Payment getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>, prevPage: <ShippingInfo getActive={this.getActive}/>});
+            this.setState({ checkoutPage: <Payment toPrev={this.goToPrev} getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>, prevPage: <ShippingInfo handleClickCart={this.handleClick} toPrev={this.goToPrev} getActive={this.getActive}/>});
         }
         else if (this.state.checkoutPage.type.name === "Payment") {
-            this.setState({ checkoutPage: <Confirmation lastDigits={this.lastDigits}/>, prevPage: <Payment getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>});
+            this.setState({ checkoutPage: <Confirmation lastDigits={this.lastDigits}/>, prevPage: <Payment toPrev={this.goToPrev} getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>});
+        }
+    }
+
+    goToPrev = () => {
+        if (this.state.checkoutPage.type.name === "ShippingInfo" ) {
+            this.setState({checkoutPage: this.state.prevPage});
+            this.setState({prevPage: null});
+        }
+        else if (this.state.checkoutPage.type.name === "Payment") {
+            this.setState({checkoutPage: this.state.prevPage});
+            this.setState({prevPage: <ItemContainer handleClick={this.handleClick} checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>});
         }
     }
 

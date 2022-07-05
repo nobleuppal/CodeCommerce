@@ -140,6 +140,7 @@ class Payment extends React.Component {
                         <input name="cvv" id="cvv" type="number" onChange={e => this.cvvCheck(e)}/>                       
                     </div>
 
+                    <button onClick={() => this.props.toPrev()} type="button">Back</button>
                     <button onClick={(e) => this.handleClick(e)} type="button">Pay</button>
                 </div>
             </div>
