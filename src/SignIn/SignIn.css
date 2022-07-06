@@ -8,6 +8,13 @@
 .sign-in h3 {
     margin-bottom: 1rem;
 }
+.sign-in {
+    height: 33rem;
+    margin-top: 10rem;
+}
+#submit, #email {
+    border: 1px solid var(--color-alt);
+}
 .sign-body {
    display: flex;
    flex-direction: column;
@@ -19,20 +26,21 @@
     display: flex;
     border-radius: 0.25rem;
     height: 2rem;
+    border: 1px solid var(--color-alt);
 }
 .password-container svg {
     width: fit-content;
 }
-input[type="password"] {
-    border: none;
-} 
 .fa-eye {
     cursor: pointer;
     width: 2rem;
 }
-#submit, #email, #password {
+#submit, #email {
     height: 2rem;
-    border: none;
+    padding: 0.25rem;
+    font-size: 1rem;
+}
+#password {
     padding: 0.25rem;
     font-size: 1rem;
 }

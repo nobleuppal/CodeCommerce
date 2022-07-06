@@ -1,5 +1,6 @@
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import React from "react";
 import './CreateAccount.css';
 
@@ -104,6 +105,7 @@ class CreateAccount extends React.Component {
     render() {
 
         const eye = <FontAwesomeIcon icon={faEye}/>
+        const facebook = <FontAwesomeIcon icon={faFacebookF}/>
         const {emailVis, passVis, firstVis, lastVis, zipVis} = this.state;
 
         return (
@@ -156,7 +158,7 @@ class CreateAccount extends React.Component {
                 <div className="submit-account">
                     <button type="submit">Sign Up</button>
                     <p>or</p>
-                    <button>SIGN UP WITH FACEBOOK</button>
+                    <button><span className="facebook">{facebook}</span> SIGN UP WITH FACEBOOK</button>
                 </div>
             </form>
         );

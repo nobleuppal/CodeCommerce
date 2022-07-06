@@ -6,10 +6,14 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: var(--text-white);
+}
+.account button:hover {
     text-decoration: underline;
 }
 .log-in {
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
+    background-color: var(--color-main);
 }

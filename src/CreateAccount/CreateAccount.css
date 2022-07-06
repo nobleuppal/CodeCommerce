@@ -10,12 +10,38 @@
 .create-account {
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: 1rem;
+    background-color: var(--color-main);
+    height: 43rem;
+}
+.account {
+    margin: 0rem auto;
 }
 .enter-info {
     display: flex;
     flex-direction: column;
     row-gap: 0.25rem;
+    margin: 0rem;
+}
+.pass-container {
+    border: 1px solid var(--color-alt);
+}
+.enter-info input {
+    border: 1px solid var(--color-alt);
+}
+.submit-account {
+    margin: 0rem;
+}
+.submit-account svg {
+    width: fit-content;
+}
+.submit-account button:last-child {
+    background-color: #4267B2;
+    color: var(--text-white);
+}
+.submit-account button:first-child {
+    background-color: var(--color-alt);
+    color: var(--text-white);
 }
 .pass-container {
     background-color: var(--text-white);

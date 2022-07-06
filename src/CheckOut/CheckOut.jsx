@@ -2,8 +2,8 @@ import React from "react";
 import './CheckOut.css';
 
 class CheckOut extends React.Component {
-   constructor() {
-        super();
+   constructor(props) {
+        super(props);
         this.state = {
             discount: 0,
         }
@@ -13,7 +13,7 @@ class CheckOut extends React.Component {
     e.preventDefault();
     const promo = document.getElementById('promo');
 
-    if(promo.value) {
+    if(promo.value && this.props.onPage !== "Confirmation") {
         this.setState({discount: 75});
     }
     else {

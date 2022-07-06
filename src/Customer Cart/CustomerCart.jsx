@@ -74,7 +74,7 @@ class CustomerCart extends React.Component {
         return(
             <div className="customer-cart">
                 <div>{this.state.checkoutPage}</div>
-                <CheckOut shippingCost={this.state.shippingCost} handleClick={this.handleClick} checkoutPrice={this.state.checkoutTotal}/>
+                <CheckOut onPage={this.state.checkoutPage.type.name} shippingCost={this.state.shippingCost} handleClick={this.handleClick} checkoutPrice={this.state.checkoutTotal}/>
             </div>
         );
     }
