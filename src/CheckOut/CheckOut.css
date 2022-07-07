@@ -1,6 +1,25 @@
 .check-out h3, .check-out label {
-    width: 50vw;
+    width: 20vw
 }
 .check-out button, .check-out input {
     width: 10vw;
+}
+.check-out button {
+    background-color: var(--color-alt);
+    border: none;
+    border-radius: 0.25rem;
+}
+.check-out input {
+    border: 1px solid var(--color-alt);
+    border-radius: 0.25rem;
+}
+.check-out {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    margin-top: 1rem;
+}
+.cost-breakdown, .check-out label {
+   text-align: left;
+   line-height: 1.5;
 }

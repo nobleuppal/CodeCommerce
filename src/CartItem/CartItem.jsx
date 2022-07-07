@@ -38,10 +38,10 @@ class CartItem extends React.Component {
 
         return(
             <div className="cart-item">
-                <FontAwesomeIcon onClick={() => this.props.removeItem(this.props.id) } className="x-mark" icon={faXmarkCircle}/>
                 <div className="product">
-                    <img src={this.props.image} alt="rare-code"/>
                     <h6>{this.props.name}</h6>
+                    <FontAwesomeIcon onClick={() => this.props.removeItem(this.props.id) } className="x-mark" icon={faXmarkCircle}/>
+                    <img src={this.props.image} alt="rare-code"/>
                 </div>
                 <span className="product-price">${this.props.price}</span>
                 <select id="selector" value={this.state.quantity} onChange={(e) => this.handleChange(e)}>
@@ -56,7 +56,7 @@ class CartItem extends React.Component {
                     <option value="9">9</option>
                     <option value="10">10</option>
                 </select>
-                <span>${this.state.totalPrice}</span>
+                <span className="total-price">${this.state.totalPrice}</span>
             </div>
         );
     }

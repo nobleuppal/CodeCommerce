@@ -1,0 +1,8 @@
+.customer-cart {
+    height: 42rem;
+    margin-top: 1rem;
+    display: flex;
+}
+.check-out h3, .check-out label, .check-out div {
+    width: 20vw;
+}

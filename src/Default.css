@@ -7,10 +7,11 @@
 :root {
     --text-white: white;
     --text-black: black;
-    --error-red: red;
+    --error-red: #EC3325;
     --error-size: 1rem;
     --color-main: #6CABDD;
     --color-alt: #D4A12A;
+    --color-border: #1C2C5B;
 }
 
 

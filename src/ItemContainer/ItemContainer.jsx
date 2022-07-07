@@ -50,16 +50,14 @@ class ItemContainer extends React.Component {
     
     render() {
         return(
-            <div className="item-container">
-                <div className="category-container">
-                    <div>Product</div>
-                    <div>Price</div>
-                    <div>Quantity</div>
-                    <div>Total Price</div>
-                </div>
-               <div>{this.state.itemOne}</div>
-               <div>{this.state.itemTwo}</div>    
-               <button onClick={(e) => this.props.handleClick(e)} type="button">Checkout</button>
+            <div className="item-container">  
+               <div className="item-product">Product</div>
+               <div className="price">Price</div>
+               <div className="quantity">Quantity</div>
+               <div className="total-price">Total Price</div> 
+               <div className="first-item">{this.state.itemOne}</div>
+               <div className="second-item">{this.state.itemTwo}</div>    
+               <button className="item-button" onClick={(e) => this.props.handleClick(e)} type="button">Checkout</button>
             </div>
         );
     }

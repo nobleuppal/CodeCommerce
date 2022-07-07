@@ -1,10 +1,50 @@
 .item-container {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
+    display: grid;
+    grid-template-columns: repeat(4, 15vw);
+    grid-template-rows: repeat(4, 1fr);
     margin: 0rem;
 }
-.category-container {
-    display: flex;
-    width: 50vw;
+.item-product {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    max-width: fit-content;
 }
+.price {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    max-width: fit-content;
+}
+.quantity {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    max-width: fit-content;
+}
+.total-price {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    max-width: fit-content;
+}
+.item-container button {
+    width: 10rem;
+    margin: 0rem;
+}
+.first-item {
+    grid-column: 1/5;
+    grid-row: 2/3;
+}
+.second-item {
+    grid-column: 1/5;
+    grid-row: 3/4;
+}
+.item-button {
+    height: 2rem;
+    grid-column: 4/5;
+    grid-row: 4/5;
+    position: relative;
+    left: 27rem;
+    background-color: var(--color-alt);
+    border: none;
+    border-radius: 0.25rem;
+}
+
+
