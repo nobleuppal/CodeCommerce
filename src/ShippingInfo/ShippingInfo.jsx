@@ -1,3 +1,5 @@
+import { faCheckCircle, faCheckSquare, faCreditCard, faTruck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import './ShippingInfo.css';
 
@@ -435,19 +437,26 @@ class ShippingInfo extends React.Component {
                     <div className="ship-method">
                         <div>
                             <input onClick={e => this.props.getActive(e.target.checked, 0)} name="ship" id="standard" type="radio"/>
-                            <label><span>Standard</span> Delivery in 4-6 Business Days - Free</label>
+                            <label>Standard: Delivery in 4-6 Business Days - Free</label>
                         </div>
 
                         <div>
                             <input onClick={e => this.props.getActive(e.target.checked, 1)} name="ship" id="express" type="radio"/>
-                            <label><span>Express</span> Delivery in 1-3 Business Days - $5.00</label>
+                            <label>Express: Delivery in 1-3 Business Days - $5.00</label>
                         </div>
                     </div>
                 </div>
 
-                <div>
+                <div className="next-back">
                     <button onClick={() => this.props.toPrev()} type="button">Back</button>
                     <button onClick={(e) => this.handleClick(e)} type="button">Checkout</button>
+                </div>
+
+                <div className="checkout-steps">
+                    <div id="cart-icon"><FontAwesomeIcon icon={faCheckCircle}/><span>Cart</span></div>
+                    <div id="shipping-icon"><FontAwesomeIcon icon={faTruck}/><span>Shipping</span></div>
+                    <div id="payment-icon"><FontAwesomeIcon icon={faCreditCard}/><span>Payment</span></div>
+                    <div id="confirmation-icon"><FontAwesomeIcon icon={faCheckSquare}/><span>Confirmation</span></div>
                 </div>
             </form>
         );

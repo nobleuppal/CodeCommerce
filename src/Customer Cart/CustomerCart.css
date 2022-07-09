@@ -1,8 +1,12 @@
 .customer-cart {
-    height: 42rem;
+    height: 55rem;
     margin-top: 1rem;
-    display: flex;
+    display: grid;
 }
 .check-out h3, .check-out label, .check-out div {
     width: 20vw;
+}
+.page-wrapper {
+    width: 75vw;
+    margin-bottom: 15vw;
 }

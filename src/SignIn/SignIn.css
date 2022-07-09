@@ -46,4 +46,7 @@
 }
 #submit {
     cursor: pointer;
+    border: none;
+    background-color: var(--color-alt);
+    color: var(--text-white);
 }
