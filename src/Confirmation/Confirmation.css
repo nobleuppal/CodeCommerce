@@ -1,0 +1,44 @@
+.confirmation {
+    margin-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 25vw;
+}
+.confirmation button {
+    width: 8rem;
+    height: 2rem;
+}
+.track-order {
+    background-color: var(--color-alt);
+    color: var(--text-white);
+    border: none;
+}
+.back-home {
+    border: 1px solid var(--color-alt);
+    background-color: transparent;
+    color: var(--text-white);
+}
+.confirmation div {
+    width: 25vw;
+}
+.confirmation svg {
+    width: fit-content;
+}
+.checkout-steps-three {
+    display: flex;
+    flex-direction: column;
+}
+.checkout-steps-three span {
+    width: fit-content;
+}
+.checkout-steps-three #cart-icon, .checkout-steps-three #shipping-icon, .checkout-steps-three #payment-icon, .checkout-steps-three #confirmation-icon {
+    display: flex;
+    flex-direction: column;
+}
+.checkout-steps-three #shipping-icon, .checkout-steps-three #payment-icon {
+    color: var(--color-border);
+}
+.checkout-steps-three #confirmation-icon {
+    color: var(--color-alt);
+}

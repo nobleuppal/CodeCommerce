@@ -2,6 +2,10 @@ import React from "react";
 import './Payment.css';
 import { faCheckCircle, faCheckSquare, faCreditCard} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Amex from '../assets/American_Express_logo.png';
+import Discover from '../assets/Discover_Card_logo.png';
+import Mastercard from'../assets/Mastercard-logo.jpeg';
+import Visa from '../assets/visa_logo.png';
 
 class Payment extends React.Component {
     constructor(props) {
@@ -47,28 +51,28 @@ class Payment extends React.Component {
         const regExDiscover = /^6(?:011|5[0-9]{2})[0-9]{12}$/;
 
         if(regExMaster.test(e.target.value)) {
-            this.setState({cardType: "Master"});
+            this.setState({cardType: <img src={Mastercard} alt="mastercard"/>});
             this.setState({cardLength: 19});
             let value = e.target.value.match(/.{1,4}/g);
             this.setState({lastDigits: value[3]});
             e.target.value = value.join(' '); 
         }
         else if(regExVisa.test(e.target.value)) {
-            this.setState({cardType: "Visa"});
+            this.setState({cardType: <img src={Visa} alt="visa"/>});
             this.setState({cardLength: 19});
             let value = e.target.value.match(/.{1,4}/g);
             this.setState({lastDigits: value[3]});
             e.target.value = value.join(' ');  
         }
         else if (regExAmex.test(e.target.value)) {
-            this.setState({cardType: "Amex"});
+            this.setState({cardType: <img src={Amex} alt="amex"/>});
             this.setState({cardLength: 18});
             let value = e.target.value.match(/.{1,4}/g);
             this.setState({lastDigits: value[3]});
             e.target.value = value.join(' '); 
         }
         else if (regExDiscover.test(e.target.value)) {
-            this.setState({cardType: "Discover"});
+            this.setState({cardType: <img src={Discover} alt="discover"/>});
             this.setState({cardLength: 19});
             let value = e.target.value.match(/.{1,4}/g);
             this.setState({lastDigits: value[3]});
@@ -85,8 +89,6 @@ class Payment extends React.Component {
             this.props.handleClickCart(e);
         }
     }
-
-
 
     render() {
         return(

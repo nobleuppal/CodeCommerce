@@ -62,7 +62,7 @@
 }
 .payment-page .pay {
     position: relative;
-    left: 30rem;
+    left: 30vw;
     top: 10rem;
 }
 .checkout-steps-two {
@@ -92,4 +92,8 @@
 }
 .checkout-steps-two #payment-icon {
     color: var(--color-alt);
+}
+.card-number-container img {
+    width: 3rem;
+    height: 2rem;
 }
