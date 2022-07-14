@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     width: 40vw;  
-    height: 50vw; 
+    height: 45vw; 
     align-self: flex-start;
 }
 .shipping-info h3, .shipping-info div, .shipping-info p {
@@ -51,8 +51,8 @@
     width: 8rem;
     margin: 0rem;
     position: relative;
-    right: 10rem;
-    bottom: 51rem;
+    right: 15rem;
+    bottom: 40rem;
 }
 .checkout-steps div {
     display: flex;
@@ -76,10 +76,10 @@
 .next-back button:first-child {
     position: relative;
     right: 20rem;
-    bottom: 23rem;
+    bottom: 15rem;
 }
 .next-back button:last-child {
     position: relative;
     left: 48rem;
-    bottom: 25rem;
+    bottom: 17rem;
 }

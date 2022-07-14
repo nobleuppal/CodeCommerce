@@ -1,5 +1,7 @@
 import React from "react";
 import './Payment.css';
+import { faCheckCircle, faCheckSquare, faCreditCard} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Payment extends React.Component {
     constructor(props) {
@@ -139,9 +141,16 @@ class Payment extends React.Component {
                         <label htmlFor="cvv">CVV</label>
                         <input name="cvv" id="cvv" type="number" onChange={e => this.cvvCheck(e)}/>                       
                     </div>
+                               
+                    <button className="back" onClick={() => this.props.toPrev()} type="button">Back</button>
+                    <button className="pay" onClick={(e) => this.handleClick(e)} type="button">Pay</button> 
 
-                    <button onClick={() => this.props.toPrev()} type="button">Back</button>
-                    <button onClick={(e) => this.handleClick(e)} type="button">Pay</button>
+                    <div className="checkout-steps-two">
+                        <div id="cart-icon"><FontAwesomeIcon icon={faCheckCircle}/><span>Cart</span></div>
+                        <div id="shipping-icon"><FontAwesomeIcon icon={faCheckCircle}/><span>Shipping</span></div>
+                        <div id="payment-icon"><FontAwesomeIcon icon={faCreditCard}/><span>Payment</span></div>
+                        <div id="confirmation-icon"><FontAwesomeIcon icon={faCheckSquare}/><span>Confirmation</span></div>
+                    </div>                                  
                 </div>
             </div>
         );
