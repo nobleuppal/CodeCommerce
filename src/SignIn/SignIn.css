@@ -2,7 +2,7 @@
 .sign-in div,
 .sign-in input,
 .sign-in label {
-    width: 25vw;
+    width: 22.5rem;
     border-radius: 0.25rem;
 }
 .sign-in h3 {
@@ -49,4 +49,21 @@
     border: none;
     background-color: var(--color-alt);
     color: var(--text-white);
+}
+@media all and (max-width: 768px) {
+    .sign-in h3,
+    .sign-in div,
+    .sign-in input,
+    .sign-in label {
+        width: 30rem;
+    }
+    .sign-in {
+        height: 80rem;
+    }
+    .password-container {
+        height: 3rem;
+    }
+    #submit, #email {
+        height: 3rem;
+    }
 }

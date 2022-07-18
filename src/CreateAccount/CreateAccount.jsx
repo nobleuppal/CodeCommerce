@@ -125,14 +125,14 @@ class CreateAccount extends React.Component {
                 <div className="enter-info">
                     <p className={passVis}>sorry, the password is invalid</p>
                     <label htmlFor="new-pass">Create Password *</label>
-                    <div className="pass-container">
+                    <div id="pass-container" className="pass-container">
                         <input id="new-pass" name="new-pass" type={this.state.inputType} required/><span onClick={() => this.toggleVis()} className="fa-eye">{eye}</span>
                     </div>
                 </div>
 
                 <div className="enter-info">
                     <label htmlFor="pass-check">Confirm Password *</label>
-                    <div className="pass-container">
+                    <div id="new-pass-container" className="pass-container">
                         <input id="pass-check" name="pass-check" type="password" required />
                     </div>
                 </div>

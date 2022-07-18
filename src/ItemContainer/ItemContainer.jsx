@@ -24,10 +24,11 @@ class ItemContainer extends React.Component {
                 id="two"         
             />,
 
-            
+            disabled: true,
         }
         this.cartTotal = 0;
         this.firstRun = 0;
+        this.removeCount = 0;
     }
 
     priceAdder = (itemTotal, prevTotal) => {
@@ -39,12 +40,21 @@ class ItemContainer extends React.Component {
         this.props.checkoutPrice(this.cartTotal);
     }
 
-    removeItem = (id) => {
+    removeItem = (id, removePrice) => {
+        ++this.removeCount;
         if (id === 'one') {
+            this.cartTotal = this.cartTotal - removePrice;
+            this.props.checkoutPrice(this.cartTotal);
             this.setState({itemOne: null});
         }
         else if (id === 'two') {
+            this.cartTotal = this.cartTotal - removePrice;
+            this.props.checkoutPrice(this.cartTotal);
             this.setState({itemTwo: null});
+        }
+
+        if(this.removeCount === 2) {
+            this.setState({disabled: false});
         }
     }
     
@@ -57,7 +67,7 @@ class ItemContainer extends React.Component {
                <div className="total-price">Total Price</div> 
                <div className="first-item">{this.state.itemOne}</div>
                <div className="second-item">{this.state.itemTwo}</div>    
-               <button className="item-button" onClick={(e) => this.props.handleClick(e)} type="button">Checkout</button>
+               <button disabled={!this.state.disabled} className="item-button" onClick={(e) => this.props.handleClick(e)} type="button">Checkout</button>
             </div>
         );
     }

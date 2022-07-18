@@ -40,7 +40,7 @@ class CartItem extends React.Component {
             <div className="cart-item">
                 <div className="product">
                     <h6>{this.props.name}</h6>
-                    <FontAwesomeIcon onClick={() => this.props.removeItem(this.props.id) } className="x-mark" icon={faXmarkCircle}/>
+                    <FontAwesomeIcon onClick={() => this.props.removeItem(this.props.id, this.state.totalPrice) } className="x-mark" icon={faXmarkCircle}/>
                     <img src={this.props.image} alt="rare-code"/>
                 </div>
                 <span className="product-price">${this.props.price}</span>

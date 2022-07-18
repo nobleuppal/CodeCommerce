@@ -12,14 +12,12 @@ class CheckOut extends React.Component {
    useCode = (e) => {
         e.preventDefault();
         const promo = document.getElementById('promo');
-
-        if(promo.value && this.props.onPage !== "Confirmation") {
+        if(promo.value && this.props.onPage !== "Confirmation" && this.props.checkoutPrice > 0) {
             this.setState({discount: 75});
         }
-        else {
-            
-        }
     }
+
+   
 
    render() {
        return(
