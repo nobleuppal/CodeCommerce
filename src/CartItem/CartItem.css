@@ -55,3 +55,11 @@
 .cart-item .product-price {
     margin-right: 3rem;
 }
+@media all and (max-width: 768px) {
+    .cart-item {
+        width: 85vw;
+    }
+    .cart-item select {
+        margin-right: 6rem;
+    }
+}

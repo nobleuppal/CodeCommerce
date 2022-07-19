@@ -7,19 +7,23 @@ class CheckOut extends React.Component {
         this.state = {
             discount: 0,
         }
+        this.discount = 75;
    }
 
    useCode = (e) => {
         e.preventDefault();
         const promo = document.getElementById('promo');
-        if(promo.value && this.props.onPage !== "Confirmation" && this.props.checkoutPrice > 0) {
+        if(promo.value && this.props.onPage !== "Confirmation" && this.props.onPage !== "Payment" && this.props.checkoutPrice > 0) {
             this.setState({discount: 75});
+            this.props.setPay(this.discount);
         }
     }
 
    
+    
 
    render() {
+
        return(
             <div className="check-out">
                 <h3>Summary</h3>

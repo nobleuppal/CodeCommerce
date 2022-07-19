@@ -17,3 +17,14 @@
     row-gap: 2rem;
     background-color: var(--color-main);
 }
+@media all and (max-width: 768px) {
+    .log-in {
+        height: 60rem;
+    }
+}
+@media all and (max-width: 414px) {
+    .log-in {
+        height: 85rem;
+    }
+}
+

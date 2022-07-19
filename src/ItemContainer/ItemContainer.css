@@ -36,10 +36,12 @@
 .first-item {
     grid-column: 1/5;
     grid-row: 2/3;
+    width: max-content;
 }
 .second-item {
     grid-column: 1/5;
     grid-row: 3/4;
+    width: max-content;
 }
 .item-button {
     height: 2rem;
@@ -51,6 +53,11 @@
     background-color: var(--color-alt);
     border: none;
     border-radius: 0.25rem;
+}
+@media all and (max-width: 768px) {
+    .item-container {
+        grid-template-columns: repeat(4, 21vw);
+    }
 }
 
 

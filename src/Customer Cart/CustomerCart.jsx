@@ -21,6 +21,7 @@ class CustomerCart extends React.Component {
             checkoutPage: <ItemContainer handleClick={this.handleClick} checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>, 
             prevPage: null,  
             shippingCost: 0, 
+            payButtonPrice: 0,
        }
        this.lastDigits = 0;   
    }
@@ -35,10 +36,10 @@ class CustomerCart extends React.Component {
             this.setState({ checkoutPage: <ShippingInfo toPrev={this.goToPrev} handleClickCart={this.handleClick} setShipping={this.setShippingInfoValid} getActive={this.getActive}/>, prevPage: <ItemContainer handleClick={this.handleClick} checkoutPrice={this.getCartTotal} profileArray={this.itemData}/>});
         }
         else if (this.state.checkoutPage.type.name === "ShippingInfo") {
-            this.setState({ checkoutPage: <Payment toPrev={this.goToPrev} getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>, prevPage: <ShippingInfo handleClickCart={this.handleClick} toPrev={this.goToPrev} getActive={this.getActive}/>});
+            this.setState({ checkoutPage: <Payment pay={this.state.payButtonPrice} toPrev={this.goToPrev} getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>, prevPage: <ShippingInfo handleClickCart={this.handleClick} toPrev={this.goToPrev} getActive={this.getActive}/>});
         }
         else if (this.state.checkoutPage.type.name === "Payment") {
-            this.setState({ checkoutPage: <Confirmation lastDigits={this.lastDigits}/>, prevPage: <Payment toPrev={this.goToPrev} getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>});
+            this.setState({ checkoutPage: <Confirmation lastDigits={this.lastDigits}/>, prevPage: <Payment pay={this.state.payButtonPrice} toPrev={this.goToPrev} getLastDigits={this.getLastFour} handleClickCart={this.handleClick}/>});
         }
     }
 
@@ -70,11 +71,15 @@ class CustomerCart extends React.Component {
         this.setState({shippingInfoValid: true});
     }
 
+    setPayButtonPrice = (discount) => {
+        this.setState({payButtonPrice: this.state.checkoutTotal + this.state.shippingCost - discount});
+    }
+
     render() {
         return(
             <div className="customer-cart">
                 <div className="page-wrapper">{this.state.checkoutPage}</div>
-                <CheckOut onPage={this.state.checkoutPage.type.name} shippingCost={this.state.shippingCost} handleClick={this.handleClick} checkoutPrice={this.state.checkoutTotal}/>
+                <CheckOut setPay={this.setPayButtonPrice} onPage={this.state.checkoutPage.type.name} shippingCost={this.state.shippingCost} handleClick={this.handleClick} checkoutPrice={this.state.checkoutTotal}/>
             </div>
         );
     }

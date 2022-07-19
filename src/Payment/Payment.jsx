@@ -91,6 +91,8 @@ class Payment extends React.Component {
     }
 
     render() {
+
+
         return(
             <div className="payment-page">
                 <h3>Payment Information</h3>
@@ -145,7 +147,7 @@ class Payment extends React.Component {
                     </div>
                                
                     <button className="back" onClick={() => this.props.toPrev()} type="button">Back</button>
-                    <button className="pay" onClick={(e) => this.handleClick(e)} type="button">Pay</button> 
+                    <button className="pay" onClick={(e) => this.handleClick(e)} type="button">Pay ${this.props.pay}</button> 
 
                     <div className="checkout-steps-two">
                         <div id="cart-icon"><FontAwesomeIcon icon={faCheckCircle}/><span>Cart</span></div>
